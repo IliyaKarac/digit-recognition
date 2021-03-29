@@ -33,7 +33,7 @@ new_img = correct_pixels(img)
 #display new image for 2.5 seconds
 cv2.imshow('digit',new_img)
 
-cv2.waitKey(2500)
+cv2.waitKey(0)
 
 #expected output for number
 print('What number is it supposed to be:')
@@ -700,11 +700,13 @@ def guess_number():
                 guess = random.randrange(0,10)
     
     #recording the result if it is a mistake
-    print("I'm guess this is a",guess )
+    print("I'm guessing this is a",guess )
     
     if guess != int(correct_num):
         if mistakes[guess] < 9:
             mistakes[guess]= mistakes[guess]+1
+    else:
+        print("We guessed correctly!")
         
     write(mistakes)
     return guess
